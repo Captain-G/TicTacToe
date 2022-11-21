@@ -13,6 +13,7 @@ nought_img = pygame.image.load("o.png")
 
 counter = 1
 is_even = False
+isBool = False
 
 position_1 = False
 position_2 = False
@@ -33,12 +34,15 @@ def nought(x, y):
     screen.blit(nought_img, (x, y))
 
 
-def draw(isEven, x, y):
-    if isEven:
+def draw(x, y):
+    global is_even  # is_even is False
+    if is_even:
         screen.blit(nought_img, (x, y))
-    else:
+        is_even = False
+    elif not is_even:
         screen.blit(cross_img, (x, y))
-    return isEven
+        is_even = True
+    return is_even
 
 
 running = True
@@ -76,40 +80,22 @@ while running:
     pygame.draw.line(screen, (0, 0, 0), (0, 300), (500, 300), width=3)
 
     if position_1:
-        draw(is_even, 5, 11)
-        if is_even:
-            is_even = False
-        else:
-            is_even = True
+        draw(5, 11)
     if position_2:
-        draw(is_even, 183.5, 11)
-        if is_even:
-            is_even = False
-        else:
-            is_even = True
+        draw(183.5, 11)
     if position_3:
-        draw(is_even, 348.5, 11)
-        if is_even:
-            is_even = False
-        else:
-            is_even = True
+        draw(348.5, 11)
     if position_4:
-        draw(counter, 18.5, 161)
-        counter += 1
+        draw(18.5, 161)
     if position_5:
-        draw(counter, 183.5, 161)
-        counter += 1
+        draw(183.5, 161)
     if position_6:
-        draw(counter, 348.5, 161)
-        counter += 1
+        draw(348.5, 161)
     if position_7:
-        draw(counter, 18.5, 311)
-        counter += 1
+        draw(18.5, 311)
     if position_8:
-        draw(counter, 183.5, 311)
-        counter += 1
+        draw(183.5, 311)
     if position_9:
-        draw(counter, 348.5, 311)
-        counter += 1
+        draw(348.5, 311)
 
     pygame.display.update()
