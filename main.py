@@ -280,3 +280,8 @@ while running:
 
     clock.tick(30)
     pygame.display.update()
+
+
+# Additional features
+# 1. Wrap it all in a single function and call the play() everytime all boxes are filled
+# 2. Handle error when the user selects a box that is already occupied
